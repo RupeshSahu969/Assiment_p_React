@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const GetData = () => {
   const [data, setData] = useState([]);
@@ -7,7 +7,7 @@ const GetData = () => {
 
   // Retrieve data from localStorage
   useEffect(() => {
-    const storedData = localStorage.getItem('dataInformation');
+    const storedData = localStorage.getItem("dataInformation");
     if (storedData) {
       setData(JSON.parse(storedData));
     }
@@ -20,11 +20,11 @@ const GetData = () => {
 
   // Delete this data veriyfy by id
   const handleDelete = (id) => {
-    const storedData = localStorage.getItem('dataInformation');
+    const storedData = localStorage.getItem("dataInformation");
     if (storedData) {
       const data = JSON.parse(storedData);
       data.addresses.splice(id, 1);
-      localStorage.setItem('dataInformation', JSON.stringify(data));
+      localStorage.setItem("dataInformation", JSON.stringify(data));
       setData(data);
     }
   };
@@ -64,10 +64,20 @@ const GetData = () => {
                 <td>{address.state}</td>
                 <td>{address.city}</td>
                 <td>
-                  <button className="btn btn-primary" onClick={() => handleEdit(item)}>Edit</button>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => handleEdit(item)}
+                  >
+                    Edit
+                  </button>
                 </td>
                 <td>
-                  <button className="btn btn-danger" onClick={() => handleDelete(item)}>Delete</button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => handleDelete(item)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
