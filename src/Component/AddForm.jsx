@@ -8,6 +8,7 @@ const AddForm = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
+  // add all form state
   const [formData, setFormData] = useState({
     pan: "",
     namefull: "",
@@ -24,8 +25,7 @@ const AddForm = () => {
     ],
   });
 
-
-  // chnage this input form data 
+  // chnage this input form data
   const handleChange = (e) => {
     const { name, value, dataset } = e.target;
     if (dataset.index !== undefined) {
@@ -37,6 +37,7 @@ const AddForm = () => {
     }
   };
 
+  //add this address all input filed
   const handleAddAddress = () => {
     setFormData({
       ...formData,
@@ -53,6 +54,7 @@ const AddForm = () => {
     });
   };
 
+  //// verify PAN number
   const panVerifyData = async () => {
     try {
       setLoading(true);
@@ -73,6 +75,7 @@ const AddForm = () => {
     }
   };
 
+  // verify postcode  number
   const getAllPostData = async (postcode) => {
     try {
       setLoading(true);
@@ -100,6 +103,7 @@ const AddForm = () => {
     }
   };
 
+  // handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
@@ -112,9 +116,11 @@ const AddForm = () => {
       return;
     }
 
+    // store all data localStore
     localStorage.setItem("dataInformation", JSON.stringify(formData));
 
     console.log("Form data submitted:", formData);
+
     navigate("/getdata");
   };
 
@@ -276,16 +282,19 @@ const AddForm = () => {
                 </div>
               </div>
             ))}
-            
-                       <div>
-                       <button type="button" className="col-md-6 mb-3" onClick={handleAddAddress}>
+
+            <div>
+              <button
+                type="button"
+                className="col-md-6 mb-3"
+                onClick={handleAddAddress}
+              >
                 Add Another Address
               </button>
-                       </div>
-              <button type="submit" className="btn btn-primary col-md-6">
-                Submit
-              </button>
-            
+            </div>
+            <button type="submit" className="btn btn-primary col-md-6">
+              Submit
+            </button>
           </div>
         </div>
       </form>
