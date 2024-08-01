@@ -55,9 +55,9 @@ const GetData = () => {
               <tr key={item}>
                 <td>{item + 1}</td>
                 <td>{data.pan}</td>
-                <td>{data.fullName}</td>
+                <td>{data.namefull}</td>
                 <td>{data.email}</td>
-                <td>{data.mobileNumber}</td>
+                <td>{data.mobile}</td>
                 <td>{address.addressLine1}</td>
                 <td>{address.addressLine2}</td>
                 <td>{address.postcode}</td>

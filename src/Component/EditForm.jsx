@@ -5,6 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 const EditForm = () => {
   
+  //all state changes
   const [formData, setFormData] = useState({
     pan: "",
     namefull: "",
